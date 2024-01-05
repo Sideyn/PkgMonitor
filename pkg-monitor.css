@@ -66,17 +66,17 @@ button {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-#receipt {
+#add {
   background-color: #60a3bc;
   color: white;
 }
 
-#undo {
+#cancel {
   background-color: #e55039;
   color: white;
 }
 
-#start-again {
+#restart {
   background-color: #f6b93b;
   color: white;
 }

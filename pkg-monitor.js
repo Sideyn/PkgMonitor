@@ -1,6 +1,6 @@
-const btnRecord = document.querySelector("#receipt");
-const btnUndo = document.querySelector("#undo");
-const btnStartAgain = document.querySelector("#start-again");
+const btnAdd = document.querySelector("#add");
+const btnCancel = document.querySelector("#cancel");
+const btnRestart = document.querySelector("#restart");
 const table = document.querySelector("table");
 
 let newRow;
@@ -48,24 +48,24 @@ function saveState() {
   });
 }
 
-btnRecord.addEventListener("click", () => {
+btnAdd.addEventListener("click", () => {
   saveState();
 
-  if (quantityRemaining >= quantityPerCase) {
+  if (quantityRemaining > 0) {
     quantityCasesCompleted++;
     quantityRemaining -= quantityPerCase;
     quantityCompleted = quantityCasesCompleted * quantityPerCase;
     updateTableContent();
   }
 
-  if (quantityRemaining == 0) {
+  if (quantityRemaining === 0) {
     alert("You are finished.");
-  } else if (quantityRemaining < 0) {
+  } else if (quantityRemaining == 0 || quantityRemaining < 0) {
     alert("You've made too many products : " + quantityRemaining);
   }
 });
 
-btnUndo.addEventListener("click", () => {
+btnCancel.addEventListener("click", () => {
   if (previousStates.length > 0) {
     const prevState = previousStates.pop();
 
@@ -83,7 +83,7 @@ btnUndo.addEventListener("click", () => {
   }
 });
 
-btnStartAgain.addEventListener("click", () => {
+btnRestart.addEventListener("click", () => {
   location.reload();
 });
 
